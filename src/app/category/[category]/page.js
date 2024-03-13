@@ -13,7 +13,7 @@ export function generateStaticParams() {
 export const revalidate = 3600
 
 export default async function category({ params }) {
-    const response = await fetch(`https://ecommerce-nextjs-main-git-main-kevinstajurski.vercel.app/api/products/${params.category}`, { cache: "no-store" })
+    const response = await fetch(`https://ecommerce-nextjs-main.vercel.app/api/products/${params.category}`, { cache: "no-store" })
         .then(r => r.json())
     return (
         <Suspense fallback={<p>Cargando...</p>}>

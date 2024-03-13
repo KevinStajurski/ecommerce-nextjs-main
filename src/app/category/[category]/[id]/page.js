@@ -1,6 +1,6 @@
 import ProductDetail from "@/components/ProductDetail"
 const id = async ({ params }) => {
-    const response = await fetch(`https://ecommerce-nextjs-main-git-main-kevinstajurski.vercel.app/api/products/${params.category}/${params.id}`, { cache: "no-store" })
+    const response = await fetch(`https://ecommerce-nextjs-main.vercel.app/api/products/${params.category}/${params.id}`, { cache: "no-store" })
         .then(r => r.json())
 
     return (

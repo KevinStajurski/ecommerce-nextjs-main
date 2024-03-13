@@ -14,7 +14,7 @@ pnpm dev
 bun dev
 ```
 
-Open [https://ecommerce-nextjs-main-git-main-kevinstajurski.vercel.app//](https://ecommerce-nextjs-main-git-main-kevinstajurski.vercel.app//) with your browser to see the result.
+Open [https://ecommerce-nextjs-main.vercel.app](https://ecommerce-nextjs-main.vercel.app) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
