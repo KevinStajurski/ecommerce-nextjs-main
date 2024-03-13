@@ -6,10 +6,6 @@ import { useEffect } from "react"
 const CartLayout = ({ children, checkout }) => {
     const { out } = useCartContext()
 
-    useEffect(() => {
-        console.log(out)
-    }, [out])
-
     return (
         <>
             {
