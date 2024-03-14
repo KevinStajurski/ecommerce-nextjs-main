@@ -4,14 +4,19 @@ import { doc, deleteDoc } from "firebase/firestore"
 import Image from "next/image"
 import Link from "next/link"
 import { db } from "@/firebase/config"
-
-//Eliminar producto
-const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "products", id))
-    alert("Producto eliminado con exito. Actualice la página")
-}
+import { useRouter } from "next/navigation"
 
 const ProductsTable = ({ items }) => {
+
+    const router = useRouter()
+
+    //Eliminar producto
+    const handleDelete = async (id) => {
+        await deleteDoc(doc(db, "products", id))
+        alert("Producto eliminado con exito.")
+        router.refresh()
+    }
+
     return (
         <div>
             <button className="m-4 bg-slate-200 rounded-2xl px-2">

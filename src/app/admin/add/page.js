@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { doc, setDoc } from 'firebase/firestore'
 import { db, storage } from '@/firebase/config'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { useRouter } from "next/navigation"
 
 const createProduct = async (newProduct, file) => {
     const storageRef = ref(storage, newProduct.id)
@@ -14,6 +15,9 @@ const createProduct = async (newProduct, file) => {
 }
 
 const Add = () => {
+
+    const router = useRouter()
+
     const [newProduct, setNewProduct] = useState({
         id: '',
         category: '',
@@ -56,6 +60,7 @@ const Add = () => {
         e.preventDefault()
         await createProduct(newProduct, file)
         alert("Producto agregado con exito")
+        router.back()
     }
 
     return (
