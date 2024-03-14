@@ -7,16 +7,17 @@ import { useCartContext } from "@/components/context/CartContext"
 
 const Checkout = () => {
     const [address, setAddress] = useState('')
+    
     const handleAddress = (e) => {
         setAddress(e.target.value)
     }
-    const { setOut } = useCartContext()
+    
+    const { setOut, cart } = useCartContext()
 
     const handleFinish = async (address) => {
-        const docRef = await addDoc(collection(db, "orders"), { direccion: address })
+        const docRef = await addDoc(collection(db, "orders"), { direccion: address, cart: cart })
         alert(`Compra realizada con exito con el id: ${docRef.id}`)
     }
-
 
     return (
         <div className="mb-auto">
