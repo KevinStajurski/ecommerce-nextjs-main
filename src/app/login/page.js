@@ -2,9 +2,11 @@
 
 import { useAuthContext } from "@/components/context/AuthContext"
 import { useState } from "react"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 const Login = () => {
+
+    const router = useRouter()
 
     const { loginUser } = useAuthContext()
     const [values, setValues] = useState({ email: '', password: '' })
@@ -33,11 +35,12 @@ const Login = () => {
                 onChange={handleChange}
             />
             <button
-                onClick={() => loginUser(values)}
+                onClick={() => {
+                    loginUser(values)
+                    router.push('/')
+                }}
                 className="mt-3 bg-slate-200 rounded-2xl px-2">
-                <Link href={"/"}>
-                    Iniciar sesión
-                </Link>
+                Iniciar sesión
             </button>
         </div>
     )

@@ -3,8 +3,11 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { db } from '@/firebase/config'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 const Edit = ({ params }) => {
+
+    const router = useRouter()
 
     const [item, setItem] = useState({
         category: null,
@@ -33,6 +36,7 @@ const Edit = ({ params }) => {
     const handleUpdate = async (item) => {
         await setDoc(doc(db, "products", item.id), item)
         alert("Producto actualizado con exito!")
+        router.back()
     }
 
     return (

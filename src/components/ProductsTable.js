@@ -19,8 +19,11 @@ const ProductsTable = ({ items }) => {
 
     return (
         <div>
-            <button className="m-4 bg-slate-200 rounded-2xl px-2">
-                <Link href={"admin/add"}>Agregar nuevo producto</Link>
+            <button className="m-4 bg-slate-200 rounded-2xl px-2" onClick={() => router.push('admin/add')}>
+                Agregar nuevo producto
+            </button>
+            <button className="m-4 bg-slate-200 rounded-2xl px-2" onClick={() => router.refresh()}>
+                Actualizar
             </button>
             <table>
                 <thead>

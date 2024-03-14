@@ -2,8 +2,11 @@
 import { useAuthContext } from "./context/AuthContext"
 import Link from "next/link"
 import AdminButton from "./AdminButton"
+import { useRouter } from "next/navigation"
 
 const LoginAndSignupOrLogout = () => {
+
+    const router = useRouter()
 
     const { user, logout } = useAuthContext()
 
@@ -12,11 +15,13 @@ const LoginAndSignupOrLogout = () => {
             {user.logged ?
                 <div className="flex justify-between px-4">
                     <p>Bienvenido {user.email}</p>
-                    <AdminButton/>
-                    <button onClick={logout}>
-                        <Link href={"/"}>
-                            Cerrar sesión
-                        </Link>
+                    <AdminButton />
+                    <button
+                        onClick={() => {
+                            logout()
+                            router.push('/')
+                        }}>
+                        Cerrar sesión
                     </button>
                 </div> :
                 (<div className="text-right">

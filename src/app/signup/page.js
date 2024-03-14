@@ -1,9 +1,11 @@
 'use client'
 import { useAuthContext } from '@/components/context/AuthContext'
-import Link from 'next/link'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 const SignUp = () => {
+
+    const router = useRouter()
 
     const { registerUser } = useAuthContext()
     const [values, setValues] = useState({ email: '', password: '', passwordConfirm: '' })
@@ -40,12 +42,13 @@ const SignUp = () => {
                 onChange={handleChange}
             />
             <button
-                onClick={() => registerUser(values)}
+                onClick={() => {
+                    registerUser(values)
+                    router.push('/')
+                }}
                 className="mt-3 bg-slate-200 rounded-2xl px-2"
             >
-                <Link href={"/"}>
-                    Crear cuenta
-                </Link>
+                Crear cuenta
             </button>
         </div>
     )
