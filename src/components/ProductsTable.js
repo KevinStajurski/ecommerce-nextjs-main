@@ -25,6 +25,9 @@ const ProductsTable = ({ items }) => {
             <button className="m-4 bg-slate-200 rounded-2xl px-2" onClick={() => router.refresh()}>
                 Actualizar
             </button>
+            <button className="m-4 bg-slate-200 rounded-2xl px-2" onClick={() => router.push('admin/orders')}>
+                Pedidos
+            </button>
             <table>
                 <thead>
                     <tr>
